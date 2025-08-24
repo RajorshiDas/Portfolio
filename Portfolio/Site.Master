@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Portfolio.Site1" %>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="Content/Site.css" />
+</head>
+<body>
+    <form runat="server">
+        <div class="navbar">
+            <a href="Default.aspx">Home</a>
+            <a href="About.aspx">About</a>
+            <a href="Education.aspx">Education</a>
+            <a href="Skills.aspx">Skills</a>
+            <a href="Projects.aspx">Projects</a>
+            <a href="Contact.aspx">Contact</a>
+        </div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </form>
+</body>
+</html>
