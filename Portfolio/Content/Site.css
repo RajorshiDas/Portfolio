@@ -1,0 +1,240 @@
+﻿/* ===== General Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fira Code", "Courier New", monospace;
+}
+
+body {
+    background: #1e1e2f; /* dark IDE background */
+    color: #cfd8dc; /* soft light gray text */
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* brand left, links right */
+    align-items: center;
+    background: #252535; /* darker panel color */
+    padding: 12px 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    flex-wrap: nowrap;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #9c27b0; /* purple code-like color */
+    flex-shrink: 0;
+    font-family: "Fira Code", monospace;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+    .navbar-menu a {
+        color: #80cbc4; /* soft cyan for links */
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+        .navbar-menu a:hover {
+            color: #ffab91; /* peach highlight */
+        }
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+    .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background: #9c27b0;
+        transition: 0.3s;
+    }
+
+/* ===== Responsive Navbar ===== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+        .navbar-menu.active {
+            display: flex;
+        }
+
+    .menu-toggle {
+        display: flex;
+        align-self: flex-end;
+    }
+}
+
+/* ===== Page Transition Overlay ===== */
+.page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    background: #1e1e2f;
+}
+
+    .page-transition.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* ===== Hero Section ===== */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 0 5%;
+    background: linear-gradient(135deg, #252535, #2c2c45);
+    position: relative;
+    overflow: hidden;
+    font-family: "Fira Code", monospace;
+}
+
+.hero-content h1 {
+    font-family: "Fira Code", monospace;
+    font-size: 2.8rem;
+    color: #9c27b0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #80cbc4;
+    animation: fadeInUp 1.5s ease forwards;
+}
+.cursor {
+    display: inline-block;
+    background-color: #9c27b0;
+    margin-left: 2px;
+    width: 2px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+
+    25%, 75% {
+        opacity: 0;
+    }
+}
+/* Button style remains same as IDE style from previous CSS */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #ffab91;
+    color: #1e1e2f;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 171, 145, 0.5);
+    transition: 0.3s;
+}
+
+    .btn:hover {
+        background: #9c27b0;
+        color: #fff;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(156,39,176,0.7);
+    }
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #ffab91;
+    color: #1e1e2f;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 171, 145, 0.5);
+    transition: 0.3s;
+}
+
+    .btn:hover {
+        background: #9c27b0;
+        color: #fff;
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(156,39,176,0.7);
+    }
+
+/* ===== Floating code/IDE shapes ===== */
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(156, 39, 176, 0.2);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+}
+
+.hero-section::after {
+    right: -120px;
+    bottom: -120px;
+    background: rgba(128, 203, 196, 0.2);
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInDown {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
