@@ -31,9 +31,11 @@
     }
 
     // Page transition overlay (peach)
-    const form = document.querySelector('form');
-    form.classList.add('page-transition');
-    requestAnimationFrame(() => form.classList.add('active'));
+    const formTag = document.querySelector('form');
+    if (formTag) {
+        formTag.classList.add('page-transition');
+        requestAnimationFrame(() => formTag.classList.add('active'));
+    }
 
     let overlay = document.getElementById('pageOverlay');
     if (!overlay) {
@@ -90,4 +92,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setTimeout(type, 1000);
+});
+
+// Contact form handling
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const statusEl = document.getElementById('contactStatus');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!contactForm.reportValidity()) return;
+
+        const data = {
+            name: contactForm.name.value.trim(),
+            email: contactForm.email.value.trim(),
+            message: contactForm.message.value.trim()
+        };
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+            statusEl.textContent = 'Please enter a valid email address.';
+            statusEl.style.color = '#ffab91';
+            return;
+        }
+
+        statusEl.textContent = 'Sending...';
+        statusEl.style.color = '#80cbc4';
+
+        // Simulate async send
+        setTimeout(() => {
+            statusEl.textContent = 'Thank you! Your message has been sent.';
+            statusEl.style.color = '#9c27b0';
+            contactForm.reset();
+        }, 700);
+    });
 });
