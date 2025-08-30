@@ -49,14 +49,55 @@ namespace Portfolio.Admin
             string desc = ((System.Web.UI.WebControls.TextBox)gvProjects.Rows[e.RowIndex].Cells[2].Controls[0]).Text;
             string url = ((System.Web.UI.WebControls.TextBox)gvProjects.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
 
+            string imgPath = null;
+
+            // Find FileUpload inside GridView
+            var fu = (System.Web.UI.WebControls.FileUpload)gvProjects.Rows[e.RowIndex].FindControl("fuEditImage");
+
+            if (fu != null && fu.HasFile)
+            {
+                string ext = System.IO.Path.GetExtension(fu.FileName).ToLower();
+                string[] allowed = { ".jpg", ".jpeg", ".png", ".gif" };
+
+                if (Array.IndexOf(allowed, ext) < 0)
+                {
+                    lblStatus.Text = "Only image files (.jpg, .jpeg, .png, .gif) are allowed.";
+                    return;
+                }
+
+                if (fu.PostedFile.ContentLength > 2 * 1024 * 1024)
+                {
+                    lblStatus.Text = "File size must be less than 2MB.";
+                    return;
+                }
+
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(fu.FileName);
+                string uniqueName = fileName + "_" + DateTime.Now.Ticks + ext;
+                imgPath = "~/Uploads/" + uniqueName;
+                fu.SaveAs(Server.MapPath(imgPath));
+            }
+
             using (SqlConnection con = new SqlConnection(cs))
             {
-                string query = "UPDATE Projects SET Title=@Title, Description=@Desc, Url=@Url WHERE Id=@Id";
+                string query;
+
+                if (imgPath != null) // update with new image
+                {
+                    query = "UPDATE Projects SET Title=@Title, Description=@Desc, Url=@Url, Image=@Image WHERE Id=@Id";
+                }
+                else // update without changing image
+                {
+                    query = "UPDATE Projects SET Title=@Title, Description=@Desc, Url=@Url WHERE Id=@Id";
+                }
+
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Title", title);
                 cmd.Parameters.AddWithValue("@Desc", desc);
                 cmd.Parameters.AddWithValue("@Url", url);
                 cmd.Parameters.AddWithValue("@Id", id);
+
+                if (imgPath != null)
+                    cmd.Parameters.AddWithValue("@Image", imgPath);
 
                 con.Open();
                 cmd.ExecuteNonQuery();

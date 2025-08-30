@@ -21,7 +21,17 @@
                 <asp:BoundField DataField="Title" HeaderText="Title" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
                 <asp:BoundField DataField="Url" HeaderText="URL" />
-                <asp:ImageField DataImageUrlField="Image" HeaderText="Image" ControlStyle-Width="100" ControlStyle-Height="70" />
+              <asp:TemplateField HeaderText="Image">
+    <ItemTemplate>
+        <asp:Image ID="imgProject" runat="server" ImageUrl='<%# Eval("Image") %>' Width="100" Height="70" />
+    </ItemTemplate>
+    <EditItemTemplate>
+        <asp:FileUpload ID="fuEditImage" runat="server" />
+        <br />
+        <asp:Image ID="imgEditPreview" runat="server" ImageUrl='<%# Eval("Image") %>' Width="100" Height="70" />
+    </EditItemTemplate>
+</asp:TemplateField>
+
 
                 <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" />
             </Columns>
