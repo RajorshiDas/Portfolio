@@ -2,14 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="education-container">
-         <h1>Education & Certifications</h1>
+        <h1>Education & Certifications</h1>
+        <asp:Repeater ID="rptEducation" runat="server">
+            <ItemTemplate>
+                <div class="education-item">
+                    <h2><%# Eval("Degree") %></h2>
 
-          <div class="education-item">
-            <h2>Bachelor of Science in Computer Science</h2>
-            <h3>University of Technology | 2014 - 2018</h3>
-            <p>Graduated with honors. Specialized in web development and software engineering.</p>
-        </div>
-
-        
-      </div>
-       </asp:Content>
+                    <h3><%# Eval("Institution") %> | <%# Eval("Year") %></h3>
+                    <p><%# Eval("Description") %></p>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+</asp:Content>

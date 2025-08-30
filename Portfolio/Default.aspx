@@ -25,6 +25,19 @@
             </asp:Repeater>
 
             </div>
+        <div class="education-container">
+    <h1>Education & Certifications</h1>
+    <asp:Repeater ID="rptEducation" runat="server">
+        <ItemTemplate>
+            <div class="education-item">
+                <h2><%# Eval("Degree") %></h2>
+                <h3><%# Eval("Institution") %> | <%# Eval("Year") %></h3>
+                <p><%# Eval("Description") %></p>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+</div>
+
             <h2 id="contact">Contact Me</h2>
     <asp:Panel ID="pnlContact" runat="server" CssClass="contact-form">
     <asp:TextBox ID="txtName" runat="server" Placeholder="Your Name"></asp:TextBox><br />

@@ -20,7 +20,7 @@
             
             <div class="contact-form">
                 <h2>Send Me a Message</h2>
-                <form id="contactForm">
+                <asp:Panel ID="contactFormPanel" runat="server">
                     <div class="form-field">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -37,7 +37,7 @@
                         <button type="submit" class="btn">Send</button>
                     </div>
                     <div id="contactStatus" aria-live="polite"></div>
-                </form>
+                </asp:Panel>
             </div>
         </div>
     </div>

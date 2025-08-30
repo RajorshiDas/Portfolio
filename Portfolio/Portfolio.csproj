@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\AddEducation.aspx" />
     <Content Include="Admin\AddProject.aspx" />
+    <Content Include="Admin\ManageEducation.aspx" />
     <Content Include="Admin\ManageProjects.aspx" />
     <Content Include="Admin\Messages.aspx" />
     <Content Include="Contact.aspx" />
@@ -88,12 +90,26 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddEducation.aspx.cs">
+      <DependentUpon>AddEducation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddEducation.aspx.designer.cs">
+      <DependentUpon>AddEducation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddProject.aspx.cs">
       <DependentUpon>AddProject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AddProject.aspx.designer.cs">
       <DependentUpon>AddProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageEducation.aspx.cs">
+      <DependentUpon>ManageEducation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageEducation.aspx.designer.cs">
+      <DependentUpon>ManageEducation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageProjects.aspx.cs">
       <DependentUpon>ManageProjects.aspx</DependentUpon>

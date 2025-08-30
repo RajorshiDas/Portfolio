@@ -12,6 +12,7 @@ namespace Portfolio
             if (!IsPostBack)
             {
                 BindProjects();
+                LoadEducation();
             }
         }
 
@@ -48,6 +49,17 @@ namespace Portfolio
             lblContactStatus.Text = "✅ Thank you! Your message has been sent.";
             txtName.Text = txtEmail.Text = txtSubject.Text = txtMessage.Text = "";
         }
-
+        private void LoadEducation()
+        {
+            string cs = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Education", con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                rptEducation.DataSource = dt;
+                rptEducation.DataBind();
+            }
+        }
     }
 }
