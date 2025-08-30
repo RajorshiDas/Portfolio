@@ -23,6 +23,18 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-        </div>
+
+            </div>
+            <h2 id="contact">Contact Me</h2>
+    <asp:Panel ID="pnlContact" runat="server" CssClass="contact-form">
+    <asp:TextBox ID="txtName" runat="server" Placeholder="Your Name"></asp:TextBox><br />
+    <asp:TextBox ID="txtEmail" runat="server" Placeholder="Your Email"></asp:TextBox><br />
+    <asp:TextBox ID="txtSubject" runat="server" Placeholder="Subject"></asp:TextBox><br />
+    <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Rows="5" Placeholder="Your Message"></asp:TextBox><br />
+    <asp:Button ID="btnSend" runat="server" Text="Send Message" OnClick="btnSend_Click" CssClass="btn" /><br />
+    <asp:Label ID="lblContactStatus" runat="server" ForeColor="Green"></asp:Label>
+    </asp:Panel>
+
+      
     </div>
 </asp:Content>

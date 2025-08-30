@@ -4,6 +4,22 @@
            <h1>My Projects</h1>
 
         <div class="projects-grid">
+
+            <h2>My Projects</h2>
+    <asp:Repeater ID="rptProjects" runat="server">
+    <ItemTemplate>
+        <div class="project-card">
+            <h3><%# Eval("Title") %></h3>
+            <p><%# Eval("Description") %></p>
+            <asp:Image ID="imgProject" runat="server" ImageUrl='<%# Eval("Image") %>' Width="200px" />
+            <asp:HyperLink ID="lnkGitHub" runat="server"
+                NavigateUrl='<%# Eval("Url") %>'
+                Text="🔗 View on GitHub"
+                CssClass="btn btn-primary"
+                Target="_blank" />
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
             <div class="project-card reveal">
                 <img src="Images/project1.jpg" alt="E-Commerce Website" />
                 <div class="project-info">
@@ -58,6 +74,8 @@
                     </div>
                     <a href="#" class="project-link">View Project</a>
                 </div>
+
+    
             </div>
          </div>
     </div>

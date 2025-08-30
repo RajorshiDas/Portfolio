@@ -70,6 +70,7 @@
     <Content Include="About.aspx" />
     <Content Include="Admin\AddProject.aspx" />
     <Content Include="Admin\ManageProjects.aspx" />
+    <Content Include="Admin\Messages.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Script.js" />
     <Content Include="Content\Site.css" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="Admin\ManageProjects.aspx.designer.cs">
       <DependentUpon>ManageProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
