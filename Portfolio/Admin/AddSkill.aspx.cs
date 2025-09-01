@@ -17,7 +17,7 @@ namespace Portfolio.Admin
                 return;
             }
 
-            string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 string query = "INSERT INTO Skills (Category, Name, Level) VALUES (@Category, @Name, @Level)";

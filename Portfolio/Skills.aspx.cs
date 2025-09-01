@@ -17,7 +17,7 @@ namespace Portfolio
 
         private void BindSkills()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;
             DataTable dtBackend = new DataTable();
             DataTable dtFrontend = new DataTable();
             DataTable dtTools = new DataTable();
