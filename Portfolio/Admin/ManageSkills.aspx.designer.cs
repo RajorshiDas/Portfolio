@@ -7,38 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portfolio
+namespace Portfolio.Admin
 {
 
 
-    public partial class Skills
+    public partial class ManageSkills
     {
 
         /// <summary>
-        /// rptBackend control.
+        /// gvSkills control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBackend;
+        protected global::System.Web.UI.WebControls.GridView gvSkills;
 
         /// <summary>
-        /// rptFrontend control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptFrontend;
-
-        /// <summary>
-        /// rptTools control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptTools;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }
