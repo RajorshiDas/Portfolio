@@ -4,11 +4,14 @@
     <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
     <asp:Panel runat="server">
         <asp:Label Text="Category:" AssociatedControlID="ddlCategory" runat="server" />
-        <asp:DropDownList ID="ddlCategory" runat="server">
-            <asp:ListItem>Backend</asp:ListItem>
-            <asp:ListItem>Frontend</asp:ListItem>
-            <asp:ListItem>Tools</asp:ListItem>
-        </asp:DropDownList>
+        
+      <asp:DropDownList ID="ddlCategory" runat="server">
+    <asp:ListItem>Backend</asp:ListItem>
+    <asp:ListItem>Frontend</asp:ListItem>
+    <asp:ListItem>Tools</asp:ListItem>
+    <asp:ListItem>Others</asp:ListItem>
+    </asp:DropDownList>
+
         <br />
         <asp:Label Text="Skill Name:" AssociatedControlID="txtName" runat="server" />
         <asp:TextBox ID="txtName" runat="server" />

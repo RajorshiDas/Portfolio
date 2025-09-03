@@ -15,30 +15,12 @@ namespace Portfolio
     {
 
         /// <summary>
-        /// rptBackend control.
+        /// rptCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBackend;
-
-        /// <summary>
-        /// rptFrontend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptFrontend;
-
-        /// <summary>
-        /// rptTools control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptTools;
+        protected global::System.Web.UI.WebControls.Repeater rptCategories;
     }
 }

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Linq;
 
 namespace Portfolio
 {
@@ -18,42 +19,37 @@ namespace Portfolio
         private void BindSkills()
         {
             string connStr = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;
-            DataTable dtBackend = new DataTable();
-            DataTable dtFrontend = new DataTable();
-            DataTable dtTools = new DataTable();
+            DataTable dt = new DataTable();
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string query = "SELECT Category, Name, Level FROM Skills";
+                string query = "SELECT Category, Name, Level FROM Skills ORDER BY Category, Name";
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
                 da.Fill(dt);
-
-                // Filter by category
-                dtBackend = dt.Select("Category = 'Backend'").CopyToDataTableOrNull();
-                dtFrontend = dt.Select("Category = 'Frontend'").CopyToDataTableOrNull();
-                dtTools = dt.Select("Category = 'Tools'").CopyToDataTableOrNull();
             }
 
-            rptBackend.DataSource = dtBackend;
-            rptBackend.DataBind();
+            var categories = dt.AsEnumerable()
+                .GroupBy(row => row.Field<string>("Category"))
+                .Select(g => new
+                {
+                    Category = g.Key,
+                    Skills = g.CopyToDataTable()
+                }).ToList();
 
-            rptFrontend.DataSource = dtFrontend;
-            rptFrontend.DataBind();
-
-            rptTools.DataSource = dtTools;
-            rptTools.DataBind();
+            rptCategories.DataSource = categories;
+            rptCategories.DataBind();
         }
-    }
 
-    // Helper extension to handle empty selections
-    public static class DataTableExtensions
-    {
-        public static DataTable CopyToDataTableOrNull(this DataRow[] rows)
+        protected void rptCategories_ItemDataBound(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
         {
-            if (rows == null || rows.Length == 0)
-                return null;
-            return rows.CopyToDataTable();
+            if (e.Item.ItemType == System.Web.UI.WebControls.ListItemType.Item ||
+                e.Item.ItemType == System.Web.UI.WebControls.ListItemType.AlternatingItem)
+            {
+                dynamic category = e.Item.DataItem;
+                var rptSkills = (System.Web.UI.WebControls.Repeater)e.Item.FindControl("rptSkills");
+                rptSkills.DataSource = ((DataTable)category.Skills);
+                rptSkills.DataBind();
+            }
         }
     }
 }

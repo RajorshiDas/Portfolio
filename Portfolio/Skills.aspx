@@ -4,49 +4,24 @@
     <div class="skills-container">
         <h1>My Skills</h1>
         <p class="skills-intro">Here's an overview of my technical skills.</p>
-
-        <div class="skills-grid">
-            <div class="skill-card reveal">
-                <h3>Backend</h3>
-                <asp:Repeater ID="rptBackend" runat="server">
-                    <ItemTemplate>
-                        <div class="form-field">
-                            <label><%# Eval("Name") %></label>
-                            <div class="progress">
-                                <div class="progress-bar" data-level='<%# Eval("Level") %>'></div>
+        <asp:Repeater ID="rptCategories" runat="server" OnItemDataBound="rptCategories_ItemDataBound">
+            <ItemTemplate>
+                <div class="category">
+                    <h3><%# Eval("Category") %></h3>
+                    <asp:Repeater ID="rptSkills" runat="server">
+                        <ItemTemplate>
+                            <div class="skill">
+                                <span><%# Eval("Name") %></span>
+                                <div class="bar">
+                                    <div class="bar-fill" style='<%# "width:" + Eval("Level") + "%;" %>'>
+                                        <%# Eval("Level") %>%
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
-
-            <div class="skill-card reveal">
-                <h3>Frontend</h3>
-                <asp:Repeater ID="rptFrontend" runat="server">
-                    <ItemTemplate>
-                        <div class="form-field">
-                            <label><%# Eval("Name") %></label>
-                            <div class="progress">
-                                <div class="progress-bar" data-level='<%# Eval("Level") %>'></div>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
-
-            <div class="skill-card reveal">
-                <h3>Tools & Others</h3>
-                <asp:Repeater ID="rptTools" runat="server">
-                    <ItemTemplate>
-                        <div class="form-field">
-                            <label><%# Eval("Name") %></label>
-                            <div class="progress">
-                                <div class="progress-bar" data-level='<%# Eval("Level") %>'></div>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
-        </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 </asp:Content>
