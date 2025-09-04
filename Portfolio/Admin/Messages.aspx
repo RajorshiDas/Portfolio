@@ -71,12 +71,42 @@ body::before {
             font-weight: bold;
             color: #0078d7;
         }
+        .action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 12px;
+}
+.return-btn {
+    border-style: none;
+    background: #0078d7;
+    color: #fff;
+    padding: 9px 28px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    letter-spacing: 0.5px;
+    line-height: 21px;
+}
+.return-btn:hover {
+    background: #005fa3;
+    box-shadow: 0 4px 12px rgba(0,120,215,0.15);
+    text-decoration: none;
+}
     </style>
 </head>
 <body>
     <div class="messages-container">
         <h2>Manage Messages</h2>
         <form id="form1" runat="server">
+            <div class="action-bar">
+    <asp:Button ID="btnReturnDashboard" runat="server" Text="← Return to Dashboard" CssClass="return-btn" OnClick="btnReturnDashboard_Click" />
+</div>
             <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
                 CssClass="messages-grid">
                 <Columns>

@@ -12,8 +12,6 @@
             padding: 0;
             position: relative;
         }
-
-        /* Subtle grid pattern in background only */
         body::before {
             content: "";
             position: fixed;
@@ -23,7 +21,6 @@
             z-index: 0;
             background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="19" width="2" height="40" fill="%2399badd"/><rect y="19" width="40" height="2" fill="%2399badd"/></svg>');
         }
-
         .projects-container {
             background: #fff;
             max-width: 1000px;
@@ -32,49 +29,90 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             position: relative;
-            z-index: 1; /* keeps content above grid */
+            z-index: 1;
         }
-
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 24px;
         }
-
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            gap: 12px;
+        }
+        .add-btn {
+            display: inline-block;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            letter-spacing: 0.5px;
+        }
+        .add-btn:hover {
+            background: #218838;
+            box-shadow: 0 4px 12px rgba(40,167,69,0.15);
+            text-decoration: none;
+        }
+        .return-btn {
+            border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            display: inline-block;
+            background: #0078d7;
+            color: #fff;
+            padding: 9px 28px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            letter-spacing: 0.5px;
+            line-height: 21px;
+        }
+        .return-btn:hover {
+            background: #005fa3;
+            box-shadow: 0 4px 12px rgba(0,120,215,0.15);
+            text-decoration: none;
+        }
         .projects-grid {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
-            background-color: #fff; /* ensures grid doesn’t show inside cells */
+            background-color: #fff;
         }
-
         .projects-grid th, .projects-grid td {
             border: 1px solid #ddd;
             padding: 10px 12px;
             text-align: left;
             vertical-align: middle;
-            background-color: #fff; /* fixes grid showing inside table */
+            background-color: #fff;
         }
-
         .projects-grid th {
             background: #0078d7;
             color: #fff;
         }
-
         .projects-grid tr:nth-child(even) {
             background: #f9f9f9;
         }
-
         .projects-grid tr:hover {
             background: #e6f0fa;
         }
-
         .projects-grid img {
             border-radius: 4px;
             box-shadow: 0 1px 4px rgba(0,0,0,0.10);
         }
-
-        /* Button styling */
         .projects-grid button,
         .projects-grid input[type="submit"],
         .projects-grid input[type="button"] {
@@ -88,21 +126,17 @@
             margin-right: 6px;
             transition: background 0.2s;
         }
-
         .projects-grid button:hover,
         .projects-grid input[type="submit"]:hover,
         .projects-grid input[type="button"]:hover {
             background: #005fa3;
         }
-
-        /* Delete button */
         .projects-grid input[type="submit"][value="Delete"] {
             background: #d9534f;
         }
         .projects-grid input[type="submit"][value="Delete"]:hover {
             background: #b52a25;
         }
-
         .status-label {
             display: block;
             text-align: center;
@@ -115,6 +149,10 @@
     <div class="projects-container">
         <h2>Manage Projects</h2>
         <form id="form1" runat="server">
+            <div class="action-bar">
+                <a href="AddProject.aspx" class="add-btn">+ Add</a>
+                <asp:Button ID="btnReturnDashboard" runat="server" Text="← Return to Dashboard" CssClass="return-btn" OnClick="btnReturnDashboard_Click" />
+            </div>
             <asp:GridView 
                 ID="gvProjects" 
                 runat="server" 

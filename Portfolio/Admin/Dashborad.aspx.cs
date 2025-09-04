@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Portfolio.Admin
 {
@@ -15,7 +12,27 @@ namespace Portfolio.Admin
             {
                 Response.Redirect("Login.aspx");
             }
+
+            if (!IsPostBack)
+            {
+                lblEducationCount.Text = GetCount("Education").ToString();
+                lblSkillsCount.Text = GetCount("Skills").ToString();
+                lblProjectsCount.Text = GetCount("Projects").ToString();
+                lblMessagesCount.Text = GetCount("Messages").ToString();
+            }
         }
+
+        private int GetCount(string table)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT COUNT(*) FROM {table}", con);
+                con.Open();
+                return (int)cmd.ExecuteScalar();
+            }
+        }
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session["IsAdmin"] = null;

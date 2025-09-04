@@ -52,5 +52,9 @@ namespace Portfolio.Admin
             }
             BindGrid();
         }
+        protected void btnReturnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Dashborad.aspx");
+        }
     }
 }

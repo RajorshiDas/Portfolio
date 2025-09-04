@@ -136,5 +136,10 @@ namespace Portfolio.Admin
             BindGrid();
             lblStatus.Text = "🗑️ Project deleted successfully!";
         }
+
+        protected void btnReturnDashboard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Dashborad.aspx");
+        }
     }
 }
