@@ -71,6 +71,8 @@
     <Content Include="Admin\AddEducation.aspx" />
     <Content Include="Admin\AddProject.aspx" />
     <Content Include="Admin\AddSkill.aspx" />
+    <Content Include="Admin\Dashborad.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ManageEducation.aspx" />
     <Content Include="Admin\ManageProjects.aspx" />
     <Content Include="Admin\ManageSkills.aspx" />
@@ -112,6 +114,20 @@
     </Compile>
     <Compile Include="Admin\AddSkill.aspx.designer.cs">
       <DependentUpon>AddSkill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashborad.aspx.cs">
+      <DependentUpon>Dashborad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashborad.aspx.designer.cs">
+      <DependentUpon>Dashborad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageEducation.aspx.cs">
       <DependentUpon>ManageEducation.aspx</DependentUpon>

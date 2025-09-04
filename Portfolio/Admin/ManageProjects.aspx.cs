@@ -13,6 +13,14 @@ namespace Portfolio.Admin
         {
             if (!IsPostBack)
                 BindGrid();
+
+          
+            if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+       
         }
 
         private void BindGrid()

@@ -7,6 +7,15 @@ namespace Portfolio.Admin
 {
     public partial class AddProject : System.Web.UI.Page
     {
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+        }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             string cs = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;

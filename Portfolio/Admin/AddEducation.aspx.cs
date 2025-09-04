@@ -8,6 +8,11 @@ namespace Portfolio.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             if (!IsPostBack)
             {
                 txtDegree.Attributes["placeholder"] = "Degree";
@@ -15,6 +20,7 @@ namespace Portfolio.Admin
                 txtYear.Attributes["placeholder"] = "Year";
                 txtDescription.Attributes["placeholder"] = "Description";
             }
+
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
