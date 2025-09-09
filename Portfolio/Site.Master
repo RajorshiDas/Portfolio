@@ -25,7 +25,7 @@
                 <a href="Projects.aspx">Projects</a>
                 <a href="Contact.aspx">Contact</a>
                 <a href="Admin/Login.aspx" class="btn login-btn">Login</a>
-                 <button id="themeToggle" class="btn" type="button"></button>
+                 <button id="themeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
                 
             </div>
         </div>

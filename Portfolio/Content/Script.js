@@ -76,3 +76,70 @@ document.addEventListener('DOMContentLoaded', function () {
         delay += 180; // staggered animation
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Animated gradient background for hero-section
+    const hero = document.querySelector('.hero-section');
+    if (hero) {
+        // --- Floating Circles Effect ---
+        const circleCount = 18; // Number of circles
+        for (let i = 0; i < circleCount; i++) {
+            const circle = document.createElement('div');
+            circle.className = 'floating-circle';
+            // Random size between 10px and 28px
+            const size = Math.random() * 18 + 10;
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+            // Random position within hero-section
+            circle.style.left = `${Math.random() * 95}%`;
+            circle.style.top = `${Math.random() * 90}%`;
+            // Random animation duration and delay
+            circle.style.animationDuration = `${3 + Math.random() * 4}s`;
+            circle.style.animationDelay = `${Math.random() * 3}s`;
+            // Random opacity
+            circle.style.opacity = 0.18 + Math.random() * 0.22;
+            hero.appendChild(circle);
+        }
+
+        // --- Animated Gradient Background (existing code) ---
+        let step = 0;
+        const colors = [
+            [106, 17, 203],   // #6a11cb
+            [37, 117, 252],   // #2575fc
+            [67, 233, 123],   // #43e97b
+            [0, 120, 255]     // #0078ff
+        ];
+        let colorIndices = [0, 1, 2, 3];
+
+        function updateGradient() {
+            const c0_0 = colors[colorIndices[0]];
+            const c0_1 = colors[colorIndices[1]];
+            const c1_0 = colors[colorIndices[2]];
+            const c1_1 = colors[colorIndices[3]];
+
+            const istep = 1 - step;
+            const r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+            const g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+            const b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+            const color1 = `rgb(${r1},${g1},${b1})`;
+
+            const r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+            const g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+            const b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+            const color2 = `rgb(${r2},${g2},${b2})`;
+
+            hero.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+
+            step += 0.008;
+            if (step >= 1) {
+                step = 0;
+                colorIndices[0] = colorIndices[1];
+                colorIndices[2] = colorIndices[3];
+                colorIndices[1] = (colorIndices[1] + 1) % colors.length;
+                colorIndices[3] = (colorIndices[3] + 1) % colors.length;
+            }
+            requestAnimationFrame(updateGradient);
+        }
+        updateGradient();
+    }
+});
