@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace Portfolio.Admin
 {
@@ -35,8 +36,18 @@ namespace Portfolio.Admin
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Session["IsAdmin"] = null;
-            Response.Redirect("Login.aspx");
+            Session.Clear(); // Clears all session variables
+            Session.Abandon(); // Ends the session
+
+            // Optionally expire the login cookie if you set one
+            if (Request.Cookies["AdminUser"] != null)
+            {
+                var cookie = new HttpCookie("AdminUser");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+
+            Response.Redirect("~/Default.aspx"); // Redirect to home page
         }
     }
 }
