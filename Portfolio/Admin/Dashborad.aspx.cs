@@ -20,6 +20,17 @@ namespace Portfolio.Admin
                 lblSkillsCount.Text = GetCount("Skills").ToString();
                 lblProjectsCount.Text = GetCount("Projects").ToString();
                 lblMessagesCount.Text = GetCount("Messages").ToString();
+
+                // Show login count from cookie
+                HttpCookie loginCountCookie = Request.Cookies["LoginCount"];
+                if (loginCountCookie != null)
+                {
+                    lblLoginCount.Text = "You have logged in " + loginCountCookie.Value + " times.";
+                }
+                else
+                {
+                    lblLoginCount.Text = "This is your first login.";
+                }
             }
         }
 
@@ -53,14 +64,23 @@ namespace Portfolio.Admin
             Session.Abandon(); // Ends the session
 
             // Optionally expire the login cookie if you set one
-            if (Request.Cookies["AdminUser"] != null)
+            if (Request.Cookies["AdminAuth"] != null)
             {
-                var cookie = new HttpCookie("AdminUser");
+                var cookie = new HttpCookie("AdminAuth");
                 cookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(cookie);
             }
 
-            Response.Redirect("~/Default.aspx"); // Redirect to home page
+            // Expire AdminAuth cookie
+            if (Request.Cookies["AdminAuth"] != null)
+            {
+                var cookie = new HttpCookie("AdminAuth");
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                cookie.Path = "/";
+                Response.Cookies.Add(cookie);
+            }
+
+            Response.Redirect("~/Default.aspx"); 
         }
     }
 }

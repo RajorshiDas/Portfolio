@@ -170,6 +170,7 @@
                     <asp:Label ID="lblMessagesCount" runat="server" CssClass="count" />
                     <a href="Messages.aspx" class="manage-link" style="background:#0078d7;color:#fff;">View</a>
                 </div>
+                <asp:Label ID="lblLoginCount" runat="server" CssClass="count" Style="display:block;text-align:center;font-size:18px;margin-bottom:18px;" />
             </div>
         </form>
     </div>

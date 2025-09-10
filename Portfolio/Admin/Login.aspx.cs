@@ -35,11 +35,23 @@ namespace Portfolio.Admin
                 // 🔹 Store in session
                 Session["IsAdmin"] = true;
 
-                // 🔹 Create a cookie (valid for 1 day)
+                // Increment login count cookie
+                int loginCount = 1;
+                HttpCookie loginCountCookie = Request.Cookies["LoginCount"];
+                if (loginCountCookie != null && int.TryParse(loginCountCookie.Value, out int count))
+                {
+                    loginCount = count + 1;
+                }
+                loginCountCookie = new HttpCookie("LoginCount", loginCount.ToString());
+                loginCountCookie.Expires = DateTime.Now.AddYears(1);
+                Response.Cookies.Add(loginCountCookie);
+
+                // Set AdminAuth cookie (extend expiry)
                 HttpCookie authCookie = new HttpCookie("AdminAuth");
                 authCookie["Username"] = "admin";
-                authCookie["AuthToken"] = "valid_token"; // normally should be GUID/random
+                authCookie["AuthToken"] = "valid_token";
                 authCookie.Expires = DateTime.Now.AddMinutes(1);
+                authCookie.Path = "/";
                 Response.Cookies.Add(authCookie);
 
                 Response.Redirect("Dashborad.aspx");
