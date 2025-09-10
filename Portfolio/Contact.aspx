@@ -6,9 +6,9 @@
         <div class="contact-content">
             <div class="contact-info">
                 <h2>Contact Information</h2>
-                <p><strong>Email:</strong> john.doe@example.com</p>
+                <p><strong>Email:</strong> rajorshidas2004@gmail.com</p>
                 <p><strong>Phone:</strong> (123) 456-7890</p>
-                <p><strong>Location:</strong> New York, NY</p>
+                <p><strong>Location:</strong> Khulna ,Bangladesh</p>
                 <div class="social-links">
                   <a href="#" class="social-link" title="LinkedIn">
     <i class="bi bi-linkedin"></i> LinkedIn
