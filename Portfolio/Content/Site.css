@@ -985,3 +985,11 @@ body.dark-mode .project-card .btn-primary:focus {
     transform: translateY(-2px) scale(1.04);
     outline: none;
 }
+body.page-fade {
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+}
+body.page-fade-in {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+}

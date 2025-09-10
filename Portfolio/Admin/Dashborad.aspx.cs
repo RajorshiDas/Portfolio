@@ -25,12 +25,25 @@ namespace Portfolio.Admin
 
         private int GetCount(string table)
         {
+            string[] allowedTables = { "Education", "Skills", "Projects", "Messages" };
+            if (Array.IndexOf(allowedTables, table) == -1)
+                return 0; // or throw error
+
             string cs = ConfigurationManager.ConnectionStrings["PortfolioDB"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(cs))
+
+            try
             {
-                SqlCommand cmd = new SqlCommand($"SELECT COUNT(*) FROM {table}", con);
-                con.Open();
-                return (int)cmd.ExecuteScalar();
+                using (SqlConnection con = new SqlConnection(cs))
+                using (SqlCommand cmd = new SqlCommand($"SELECT COUNT(*) FROM {table}", con))
+                {
+                    con.Open();
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error (using Serilog, NLog, or System.Diagnostics)
+                return 0; // Show 0 instead of crashing page
             }
         }
 

@@ -39,7 +39,7 @@ namespace Portfolio.Admin
                 HttpCookie authCookie = new HttpCookie("AdminAuth");
                 authCookie["Username"] = "admin";
                 authCookie["AuthToken"] = "valid_token"; // normally should be GUID/random
-                authCookie.Expires = DateTime.Now.AddDays(1);
+                authCookie.Expires = DateTime.Now.AddMinutes(1);
                 Response.Cookies.Add(authCookie);
 
                 Response.Redirect("Dashborad.aspx");
