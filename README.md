@@ -1,47 +1,54 @@
-# Portfolio
 
-### 2. Open in Visual Studio
+# Portfolio Website
 
-- Open `Portfolio.sln` in Visual Studio.
+A personal portfolio web application built with ASP.NET Web Forms (.NET Framework 4.7.2).  
+Features include admin authentication, dashboard, skills/projects management, and a contact form.
 
-### 3. Configure the Database
+## Features
 
+- Responsive design with modern UI
+- Admin login and dashboard
+- Add, edit, and delete skills, projects, and education
+- Contact form with email support
+- Dark mode toggle
+
+## Prerequisites
+
+- Windows OS
+- Visual Studio 2019 or 2022
+- .NET Framework 4.7.2
+- SQL Server (Express or full)
+- Git
+
+## Getting Started
+
+### 1. Clone the Repository
+ 
+
+2. **Open the solution in Visual Studio**
+- Open `Portfolio.sln` in Visual Studio 2019 or 2022.
+
+3. **Configure the database**
+- Make sure SQL Server is installed and running.
 - Update the connection string in `Portfolio/Web.config` to match your SQL Server instance.
-- Run the SQL scripts (if provided) to create and seed the database.
+- Create the database and tables as required (see any provided SQL scripts).
 
-### 4. Build and Run
-
+4. **Build and run**
 - Build the solution in Visual Studio.
-- Press `F5` to run the application.
+- Press `F5` to run the project.
 
-### 5. Admin Login
+5. **Login**
+- Go to `/Admin/Login.aspx`
+- Use the default credentials:
+  - Username: `admin`
+  - Password: `password`
 
-- Default admin credentials:  
-  **Username:** `admin`  
-  **Password:** `password`
-
-## Usage
-
-- Access the dashboard via `/Admin/Login.aspx` after logging in.
-- Manage skills, projects, and education from the dashboard.
-- Visitors can view your portfolio and contact you via the contact form.
-
-## Customization
-
-- Update your profile, skills, and projects via the admin dashboard.
-- Change styles in `Portfolio/Content/Site.css`.
-- Add or update images/icons in `Portfolio/Content/skill-icons/` and `Portfolio/Content/images/`.
-
-## Contributing
-
-Pull requests are welcome!  
-For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License.
+6. **Start using the dashboard**
+- Add, edit, or delete skills, projects, and education.
+- Use the contact form to test messaging.
 
 ---
 
-**Need help?**  
-Open an issue or contact the repository owner.
+**Note:**  
+- You may need to restore NuGet packages if prompted.
+- For any issues, check your connection string and database setup.
