@@ -76,7 +76,7 @@ Portfolio/Content/Site.css
 ```
 Add or update images/icons in:
 ```bash
-Portfolio/Content/skill-icons/
+
 Portfolio/Content/images/
 ```
 
