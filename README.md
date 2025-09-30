@@ -60,6 +60,10 @@ Default admin credentials:
 Username: admin
 Password: password
 ```
+Access the dashboard at:
+```
+/Admin/Login.aspx
+```
 ### 6. Usage
 Access the dashboard via /Admin/Login.aspx after logging in.
 Manage skills, projects, and education from the dashboard.
