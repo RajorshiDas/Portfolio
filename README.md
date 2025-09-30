@@ -31,7 +31,7 @@ Before running this project, make sure you have:
 
 ### 1. Clone the Repository
 ```bash
-https://github.com/RajorshiDas/Portfolio.git
+git clone https://github.com/RajorshiDas/Portfolio.git
 ```
 
 ### 2. 
