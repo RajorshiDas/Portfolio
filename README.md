@@ -1,103 +1,80 @@
-# My Personal Portfolio
+# 📂 Portfolio Website
 
-> A portfolio website built with **ASP.NET Web Forms**, created as my CSE 3100 Assignment.
-
-
-
----
-
-## Table of Contents
-- [About](#about)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+A personal portfolio web application built with **ASP.NET Web Forms (.NET Framework 4.7.2)**.  
+It includes a responsive UI, admin dashboard, skills/projects/education management, and a contact form with email support.
 
 ---
 
-## About
-
-This project is my personal portfolio developed using **ASP.NET Web Forms**. It showcases my skills, projects, and professional background.
-
----
-
-## Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/RajorshiDas/Portfolio.git
-   ```
-
-2. **Open in Visual Studio:**  
-   Open the `.sln` file in Visual Studio.
-
-3. **Restore Dependencies:**  
-   Dependencies will be restored automatically when you build.
-
-4. **Run the Project:**  
-   Press `F5` or click "Start" in Visual Studio.
+## 🚀 Features
+- Responsive design with modern UI
+- Dark mode toggle
+- Admin authentication & dashboard
+- Add, edit, and delete:
+  - Skills
+  - Projects
+  - Education
+- Contact form with email functionality
 
 ---
 
-## Usage
-
-After running, open [http://localhost:xxxx](http://localhost:xxxx) (replace `xxxx` with your port) in your browser to view your portfolio.
-
----
-
-## Features
-
-- Responsive design
-- Project showcase
-- Contact form
-- Downloadable resume
-- [List any other features you have]
+## 🛠️ Prerequisites
+Before running this project, make sure you have:
+- Windows OS
+- Visual Studio 2019 or 2022
+- .NET Framework 4.7.2
+- SQL Server (Express or full)
+- Git
 
 ---
 
-## Project Structure
+## ⚡ Getting Started
 
-```
-Portfolio/
-│
-├── App_Code/
-├── App_Data/
-├── Content/
-├── Scripts/
-├── Default.aspx
-├── About.aspx
-├── Contact.aspx
-├── ...
+### 1. Clone the Repository
+```bash
+https://github.com/RajorshiDas/Portfolio.git
 ```
 
----
+### 2. 
+Open the solution in Visual Studio
+Open Portfolio.sln in Visual Studio.
+Open Portfolio.sln in Visual Studio 2019 or 2022.
 
-## Technologies Used
+### 3. Configure the Databas
 
-- **ASP.NET Web Forms** (45.5%)
-- **C#** (29.6%)
-- **CSS** (19.8%)
-- **JavaScript** (5.1%)
+Ensure SQL Server is installed and running.
+Update the connection string in:
+```
+Portfolio/Web.config
+```
+Run the SQL scripts (if provided) to create and seed the database.
+Create the database and tables as required (see any provided SQL scripts).
 
----
+### 4. Build and Run
+Build the solution in Visual Studio.
+Press F5 to run the application.
+Press F5 to run the project.
 
-## Contributing
+### 5. Admin Login
+Default admin credentials:
+```bash
+Username: admin
+Password: password
+```
+### 6. Usage
+Access the dashboard via /Admin/Login.aspx after logging in.
+Manage skills, projects, and education from the dashboard.
+Visitors can view your portfolio and contact you via the contact form.
+### 7.Customization
+Update profile, skills, and projects via the admin dashboard.
+Modify styles in:
+```bash
+Portfolio/Content/Site.css
+```
+Add or update images/icons in:
+```bash
+Portfolio/Content/skill-icons/
+Portfolio/Content/images/
+```
 
-Contributions are welcome! Please open an issue or submit a pull request for suggestions or improvements.
 
----
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Contact
-
-Created by [Rajorshi Das](mailto:your-email@example.com)  
-[LinkedIn](your-linkedin-url) | [GitHub](https://github.com/RajorshiDas)
