@@ -2,7 +2,7 @@
 
 > A portfolio website built with **ASP.NET Web Forms**, created as my CSE 3100 Assignment.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 ---
 
